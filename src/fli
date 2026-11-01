@@ -1,0 +1,12 @@
+#!/bin/env freelisp
+(import "/usr/share/freelisp-libs/prelude.l")
+
+(display "\x1b[A")
+
+(loop
+	(display
+		(let s (rl.readline (str.cat "\n" (sys.cwd) "> ")) 
+			(if (= "\n" s) "\x1b[A"
+				(let e
+					(eval (str.parse s))
+					(if (nil? e) "\x1b[A" e))))))
