@@ -160,6 +160,16 @@ LObj* xor(LObj* o) {
 	return is_nil(end) ? nil() : err(ER_SYNTAX, "||", "unexpected dotted tail");
 }
 
+LObj* nor(LObj*) __asm__("\"!!\"");
+LObj* nor(LObj* o) {
+	if (!is_cons(o)) return err(ER_SYNTAX, "!!", "expected arguments; got none");
+	LObj* end = foreach (a, o, {
+		LObj* arg = Eval(a);
+		if (!is_nil(arg)) { drop(arg); return nil(); }
+	});
+	return is_nil(end) ? tok("T") : err(ER_SYNTAX, "!!", "unexpected dotted tail");
+}
+
 LObj* bitand(LObj*) __asm__("\"&\"");
 LObj* bitand(LObj* o) {
 	if (!is_cons(o)) return err(ER_SYNTAX, "&", "expected arguments; got none");

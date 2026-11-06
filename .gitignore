@@ -1,5 +1,4 @@
 install.sh
 bin
-bin/*
 docs
-docs/*
+tests

@@ -1,4 +1,4 @@
-(extern "../bin/prelude.so" '(cons nil? cons? err? func? tok? str? int? = error apply && || ^^ & | ^ + * - / % zero? pos? neg? even? cond lambda lambda-macro display type car cdr par seq loop
+(extern "../bin/prelude.so" '(cons nil? cons? err? func? tok? str? int? = error apply && || !! ^^ & | ^ + * - / % zero? pos? neg? even? cond lambda lambda-macro display type car cdr par seq loop
 	cons->str str->cons str.len str.input str.cat str.at str.find str.parse str.sh str<- str.rep
 	file.access file.open file.read.full file.read.line file.read.str file.read.char file.write.char file.write.str file.seek file.skip file.skip.line file.format-name
 		file.err? file.eof? file? file.parse file.stat file.descriptor file.send file.truncate
